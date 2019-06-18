@@ -28,4 +28,3 @@ var getHint = function(secret, guess) {
         }
     }return a.toString()+'A'+b.toString()+'B'
 };
-console.log(getHint('11','11'))
