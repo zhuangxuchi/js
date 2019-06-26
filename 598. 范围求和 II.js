@@ -7,12 +7,12 @@
 var maxCount = function(m, n, ops) {
     let a=m;
     let b=n;
-    for(let i=0;i<ops.length;i++){
+    for(let i=0,len=ops.length;i<len;i++){
         if(ops[i][0]<a){
             a=ops[i][0];
         }
     }
-    for(let i=0;i<ops.length;i++){
+    for(let i=0,len=ops.length;i<len;i++){
         if(ops[i][1]<b){
             b=ops[i][1];
         }
