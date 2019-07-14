@@ -10,8 +10,8 @@ var wordPattern = function(pattern, str) {
     };
     let a={};
     let b={};
-    for(let i=0,len=str.length;i<len;i++){
-        if((pattern[i] in a && a[pattern[i]]!=str[i]) || (str[i] in b && b[str[i]]!=pattern[i])){
+    for(let i=0,len=pattern.length;i<len;i++){
+        if(pattern[i] in a && a[pattern[i]]!=str[i] || str[i] in b && b[str[i]]!=pattern[i]){
             return false;
         }else{
             a[pattern[i]]=str[i];
