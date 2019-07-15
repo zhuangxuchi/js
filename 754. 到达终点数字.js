@@ -8,16 +8,8 @@ var reachNumber = function(target) {
     if(target<0){
         target=-target;
     };
-    if(target<=1){
-        return target;
-    };
-    while(1){
+    while(a<target || (a-target)%2!==0){
         b++;
         a+=b;
-        if(a>=target && (a-target)%2==0){
-            return b
-        }
-    }
+    }return b
 };
-console.log(reachNumber(8))
-//1+2+3+4
