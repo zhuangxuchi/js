@@ -4,17 +4,20 @@
  */
 var reachNumber = function(target) {
     let a=0;
-    let b=1;
-    for(let i=1;i<target*2;i++){
-        if(i+a<target){
-            a+=i;
-            b++;
-        }else if(i+a>target){
-            a-=i;
-            b++;
-        }else{
-            return b;
+    let b=0;
+    if(target<0){
+        target=-target;
+    };
+    if(target<=1){
+        return target;
+    };
+    while(1){
+        b++;
+        a+=b;
+        if(a>=target && (a-target)%2==0){
+            return b
         }
     }
 };
-console.log(reachNumber(4))
+console.log(reachNumber(8))
+//1+2+3+4
