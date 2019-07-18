@@ -3,28 +3,29 @@
  * @return {boolean}
  */
 var isRobotBounded = function(instructions) {
-    if(instructions=="LLLRLLLRLLGLLGGRGLLLGGLRRRRRGLRLRLRLGGRGRGRLLLLLLGLLRLGLGLRLGGGRR"){
-        return false;
-    }else if(instructions=="GGRRG"){
-        return true;
-    }
-    let l=0;
-    let r=0;
-    let g=0;
-    for(let i=0,len=instructions.length;i<len;i++){
-        if(instructions[i]=='L'){
-            l++;
-        }else if(instructions[i]=='R'){
-            r++;
-        }else if(instructions[i]=='G'){
-            g++;
+    let d=0;
+    let x=0;
+    let y=0;
+    for(let j=0;j<4;j++){
+        for(let i=0,len=instructions.length;i<len;i++){
+            if(instructions[i]=='R'){
+                d++
+            }else if(instructions[i]=='L'){
+                d--
+            }else{
+                if(d%4==0 || d%4==-0){
+                    y++;
+                }else if(d%4==1 || d%4==-3){
+                    x++;
+                }else if(d%4==2 || d%4==-2){
+                    y--;
+                }else{
+                    x--;
+                }
+            }
         }
-    }
-    if(l==r && g!=0){
-        return false
-    }else if(r==0 && g-l<l && g>l || l==0 && g-r<r && g>r){
-        return false
-    }else{
-        return true
-    }
+        if(x==0 && y==0){
+            return true;
+        }
+    }return false;
 };
