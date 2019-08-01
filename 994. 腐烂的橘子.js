@@ -24,7 +24,7 @@ var orangesRotting = function(grid) {
     let time=0;
     let que=[];
     while(oranges.length>0){
-        temp=oranges.pop();
+        temp=oranges.shift();
         for(let i=0;i<4;i++){
             x=temp[0];
             y=temp[1];
