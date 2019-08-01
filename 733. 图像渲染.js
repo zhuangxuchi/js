@@ -6,6 +6,9 @@
  * @return {number[][]}
  */
 var floodFill = function(image, sr, sc, newColor) {
+    if(image[sr][sc]==newColor){
+        return image;
+    }
     let height=image.length;
     let width=image[0].length;
     let dirs=[[1, 0], [-1, 0], [0, 1], [0, -1]];
@@ -13,10 +16,6 @@ var floodFill = function(image, sr, sc, newColor) {
     image[sr][sc]=newColor;
     let res=[[sr,sc]];
     let temp;
-    let img=[];
-    for(let i=0;i<image.length;i++){
-        img.push([]);
-    }
     while(res.length>0){
         temp=res.pop();
         for(let i=0;i<4;i++){
@@ -24,10 +23,9 @@ var floodFill = function(image, sr, sc, newColor) {
             y=temp[1];
             x+=dirs[i][0];
             y+=dirs[i][1];
-            if(x>=0 && x<height && y>=0 && y<width && image[x][y]==initial && img[x][y]!==-1){
+            if(x>=0 && x<height && y>=0 && y<width && image[x][y]==initial){
                 res.push([x,y]);
                 image[x][y]=newColor;
-                img[x][y]=-1;
             }
         }
     }return image;
