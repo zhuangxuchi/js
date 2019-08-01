@@ -11,22 +11,26 @@ var floodFill = function(image, sr, sc, newColor) {
     }
     let height=image.length;
     let width=image[0].length;
-    let dirs=[[1, 0], [-1, 0], [0, 1], [0, -1]];
-    let initial=image[sr][sc];
-    image[sr][sc]=newColor;
-    let res=[[sr,sc]];
-    let temp;
-    while(res.length>0){
-        temp=res.pop();
-        for(let i=0;i<4;i++){
-            x=temp[0];
-            y=temp[1];
-            x+=dirs[i][0];
-            y+=dirs[i][1];
-            if(x>=0 && x<height && y>=0 && y<width && image[x][y]==initial){
-                res.push([x,y]);
-                image[x][y]=newColor;
-            }
+    let initColor=image[sr][sc];
+    function dfs(x,y){
+        image[x][y]=newColor;
+        if(x>0 && image[x-1][y]==initColor){
+            image[x-1][y]=newColor;
+            dfs(x-1,y);
         }
-    }return image;
+        if(y>0 && image[x][y-1]==initColor){
+            image[x][y-1]=newColor;
+            dfs(x,y-1);
+        }
+        if(x<height-1 && image[x+1][y]==initColor){
+            image[x+1][y]=newColor;
+            dfs(x+1,y);
+        }
+        if(y<width-1 && image[x][y+1]==initColor){
+            image[x][y+1]=newColor;
+            dfs(x,y+1);
+        }
+    }
+    dfs(sr,sc);
+    return image;
 };
