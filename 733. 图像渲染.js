@@ -32,4 +32,3 @@ var floodFill = function(image, sr, sc, newColor) {
         }
     }return image;
 };
-console.log(floodFill([[1,1,1],[1,1,0],[1,0,1]],1,1,2))
