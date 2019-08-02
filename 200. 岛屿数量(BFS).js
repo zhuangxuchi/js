@@ -19,7 +19,7 @@ var numIslands = function(grid) {
             if(grid[i][j]=='1' && grid[i][j]!==true){
                 res++;
                 grid[i][j]==true;
-                que.push([i,j])
+                que.push([i,j]);
                 while(que.length>0){
                     temp=que.shift();
                     for(let k=0;k<4;k++){
