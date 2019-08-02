@@ -14,18 +14,11 @@ var numIslands = function(grid) {
     let y;
     let res=0;
     let que=[];
-    let a=[];
-    for(let i=0;i<height;i++){
-        a.push([])
-        for(let j=0;j<width;j++){
-            a[i][j]=0;
-        }
-    }
     for(let i=0;i<height;i++){
         for(let j=0;j<width;j++){
-            if(grid[i][j]=='1' && a[i][j]==0){
+            if(grid[i][j]=='1' && grid[i][j]!==true){
                 res++;
-                a[i][j]==1;
+                grid[i][j]==true;
                 que.push([i,j])
                 while(que.length>0){
                     temp=que.shift();
@@ -34,8 +27,8 @@ var numIslands = function(grid) {
                         y=temp[1];
                         x+=dirs[k][0];
                         y+=dirs[k][1];
-                        if(x>=0 && y>=0 && x<height && y<width && grid[x][y]=='1' && a[x][y]==0){
-                            a[x][y]=1;
+                        if(x>=0 && y>=0 && x<height && y<width && grid[x][y]=='1' && grid[x][y]!==true){
+                            grid[x][y]=true;
                             que.push([x,y]);
                         }
                     }
