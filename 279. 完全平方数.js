@@ -6,26 +6,14 @@ var numSquares = function(n) {
     if(n**0.5%1==0){
         return 1;
     }
-    let que=[n];
-    let q=[];
-    let temp;
-    let a;
-    let res=0;
-    while(que.length>0){
-        temp=que.shift();
-        for(let i=1,j=parseInt(temp**0.5);i<=j;i++){
-            a=temp-i**2;
-            if(a==0){
-                return res+1;
-            }else if(que.indexOf(a)==-1 && q.indexOf(a)==-1){
-                q.push(a);
-            }
-        }
-        if(que.length==0){
-            for(let i=0,len=q.length;i<len;i++){
-                que.push(q[i]);
-            }
-            res++;
+    let arr=[];
+    for(let i=0;i<=n;i++){
+        arr.push(i);
+    }
+    for(let i=1;i<=n;i++){
+        for(let j=1;i-j*j>=0;j++){
+            arr[i]=Math.min(arr[i],arr[i-j*j]+1)
         }
     }
+    return arr[n]
 };
