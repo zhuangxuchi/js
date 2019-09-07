@@ -10,4 +10,3 @@ var judgeSquareSum = function(c) {
         }
     }return false;
 };
-console.log(judgeSquareSum(999999999))
