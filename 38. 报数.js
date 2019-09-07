@@ -20,4 +20,3 @@ var countAndSay = function(n) {
         c='';
     }return x[n-1].toString()
 };
-console.log(countAndSay(6))
