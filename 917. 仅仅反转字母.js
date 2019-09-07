@@ -19,4 +19,3 @@ var reverseOnlyLetters = function(S) {
        c.splice(d[j][0],0,d[j][1])
     }return c.join('');
 };
-console.log(reverseOnlyLetters("7_28]"))
