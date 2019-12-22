@@ -22,5 +22,5 @@ var uniquePaths = function(m, n) {
             arr[i][j]=arr[i-1][j]+arr[i][j-1];
         }
     }
-    return arr[arr.length-1][arr[0].length-1];
+    return arr[n-1][m-1];
 };
